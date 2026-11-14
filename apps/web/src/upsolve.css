@@ -1,0 +1,965 @@
+/* Upsolve queue */
+
+.upsolve-page {
+  padding-top: 34px;
+}
+
+.upsolve-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 20px;
+}
+
+.upsolve-hero h1 {
+  margin: 0;
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+}
+
+.upsolve-hero h1 span {
+  color: var(--acid);
+  text-shadow: 0 0 48px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.upsolve-hero p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.upsolve-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(72px, 1fr));
+  gap: 6px;
+  min-width: 330px;
+}
+
+.upsolve-stat {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.upsolve-stat span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--muted-dim);
+  font-size: 9.5px;
+}
+
+.upsolve-stat strong {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.upsolve-add-panel {
+  padding: 15px;
+  margin-bottom: 14px;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line));
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(500px 180px at 0% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%),
+    rgba(11, 16, 13, 0.58);
+}
+
+.upsolve-add-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 11px;
+}
+
+.upsolve-add-head h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.upsolve-add-head small {
+  color: var(--muted-dim);
+  font-size: 9.5px;
+}
+
+.upsolve-form {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.upsolve-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.upsolve-form label > span {
+  color: var(--muted-dim);
+  font-size: 9.5px;
+}
+
+.upsolve-form input,
+.upsolve-form select,
+.upsolve-edit input,
+.upsolve-edit select,
+.upsolve-edit textarea {
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline: 0;
+  color: var(--text);
+  font-size: 10.5px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.upsolve-form input:focus,
+.upsolve-form select:focus,
+.upsolve-edit input:focus,
+.upsolve-edit select:focus,
+.upsolve-edit textarea:focus {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.upsolve-form input::placeholder,
+.upsolve-edit input::placeholder,
+.upsolve-edit textarea::placeholder {
+  color: var(--muted-dim);
+}
+
+.upsolve-url-field {
+  grid-column: span 5;
+}
+
+.upsolve-kind-select {
+  grid-column: span 12;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.upsolve-kind-select > span {
+  color: var(--muted-dim);
+  font-size: 9.5px;
+}
+
+.upsolve-kind-select > div {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.upsolve-kind-select button {
+  padding: 3px 8px;
+  border-radius: 3px;
+  color: var(--muted-dim);
+  font-size: 9px;
+}
+
+.upsolve-kind-select button.is-active {
+  color: var(--acid);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.upsolve-form > label:nth-of-type(2) {
+  grid-column: span 3;
+}
+
+.upsolve-form > label:nth-of-type(3) {
+  grid-column: span 4;
+}
+
+.upsolve-form > label:nth-of-type(4) {
+  grid-column: span 2;
+}
+
+.upsolve-form > label:nth-of-type(5) {
+  grid-column: span 3;
+}
+
+.upsolve-note-field {
+  grid-column: span 5;
+}
+
+.upsolve-url-field > div,
+.upsolve-tags-input {
+  position: relative;
+}
+
+.upsolve-url-field > div svg,
+.upsolve-tags-input svg {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  color: var(--muted-dim);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.upsolve-url-field > div input,
+.upsolve-tags-input input {
+  padding-left: 27px;
+}
+
+.upsolve-add-btn {
+  grid-column: span 2;
+  align-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 31px;
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  border-radius: 5px;
+  color: #07110f;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: var(--acid);
+}
+
+.upsolve-add-btn:disabled {
+  opacity: 0.55;
+}
+
+.upsolve-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.upsolve-contest-panel {
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.003)),
+    rgba(11, 16, 13, 0.5);
+}
+
+.upsolve-contest-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.upsolve-contest-head h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.upsolve-contest-toggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 4px;
+  color: var(--acid);
+  font-size: 9.5px;
+}
+
+.upsolve-contest-groups {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.upsolve-contest-chip {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.upsolve-contest-chip-main {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 7px;
+  color: inherit;
+  font-size: inherit;
+}
+
+.upsolve-contest-link {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding: 0 5px;
+  border-left: 1px solid var(--line);
+  color: var(--muted-dim);
+}
+
+.upsolve-contest-link:hover {
+  color: var(--acid);
+}
+
+.upsolve-contest-chip em {
+  color: var(--muted-dim);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-style: normal;
+}
+
+.upsolve-contest-chip.is-active {
+  border-color: color-mix(in srgb, var(--accent) 34%, transparent);
+  color: var(--acid);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.upsolve-contest-chip.is-active em {
+  color: var(--acid);
+}
+
+.upsolve-contest-hint {
+  color: var(--muted-dim);
+  font-size: 9px;
+}
+
+.upsolve-contest-import {
+  display: grid;
+  grid-template-columns: 1.8fr 0.8fr 1fr 1.3fr auto auto;
+  align-items: end;
+  gap: 7px;
+  margin-top: 9px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line);
+}
+
+.upsolve-contest-import label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.upsolve-contest-import label > span {
+  color: var(--muted-dim);
+  font-size: 8.5px;
+}
+
+.upsolve-contest-import input:not([type='checkbox']),
+.upsolve-contest-import select {
+  width: 100%;
+  padding: 6px 7px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  outline: 0;
+  color: var(--text);
+  font-size: 9.5px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.upsolve-contest-import input:focus,
+.upsolve-contest-import select:focus {
+  border-color: color-mix(in srgb, var(--accent) 36%, transparent);
+}
+
+.upsolve-contest-only {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 4px !important;
+  padding-bottom: 6px;
+  color: var(--muted);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.upsolve-contest-only input {
+  accent-color: var(--accent);
+}
+
+.upsolve-contest-import-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 27px;
+  padding: 0 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 4px;
+  color: var(--acid);
+  font-size: 9px;
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+
+.upsolve-contest-import-btn:disabled {
+  opacity: 0.5;
+}
+
+.upsolve-contest-name {
+  overflow: hidden;
+  max-width: 190px;
+  padding: 1px 5px;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line));
+  border-radius: 3px;
+  color: var(--muted);
+  font-size: 8.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upsolve-contest-name:hover {
+  color: var(--acid);
+}
+
+.upsolve-status-tabs {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.upsolve-status-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 4px;
+  color: var(--muted-dim);
+  font-size: 10px;
+}
+
+.upsolve-status-tabs button em {
+  color: var(--muted-dim);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-style: normal;
+}
+
+.upsolve-status-tabs button.is-active {
+  color: var(--acid);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.upsolve-status-tabs button.is-active em {
+  color: var(--acid);
+}
+
+.upsolve-filters {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.upsolve-search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 7px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted-dim);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.upsolve-search input {
+  width: 150px;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  font-size: 10px;
+  background: transparent;
+}
+
+.upsolve-search input::placeholder {
+  color: var(--muted-dim);
+}
+
+.upsolve-filters select {
+  padding: 5px 7px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline: 0;
+  color: var(--muted);
+  font-size: 9.5px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.upsolve-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 260px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.upsolve-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.upsolve-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3px minmax(0, 1fr) auto;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.022), rgba(255, 255, 255, 0.003)),
+    rgba(11, 16, 13, 0.58);
+}
+
+.upsolve-card.status-done {
+  opacity: 0.68;
+}
+
+.upsolve-card-priority {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: color-mix(in srgb, var(--priority-color) 18%, transparent);
+}
+
+.upsolve-card-priority span {
+  color: var(--priority-color);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  writing-mode: vertical-rl;
+}
+
+.upsolve-card-priority i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--priority-color);
+}
+
+.upsolve-card-body {
+  min-width: 0;
+  padding: 9px 12px;
+}
+
+.upsolve-card-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+
+.upsolve-kind {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.upsolve-kind.kind-contest {
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+  color: var(--acid);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+
+.upsolve-platform {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.upsolve-difficulty {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.upsolve-difficulty::before {
+  content: '难度 ';
+  color: var(--muted-dim);
+  font-size: 8px;
+}
+
+.upsolve-status {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+}
+
+.upsolve-status.status-todo {
+  color: var(--muted);
+}
+
+.upsolve-status.status-doing {
+  color: var(--orange, #ffb35c);
+}
+
+.upsolve-status.status-done {
+  color: var(--acid);
+}
+
+.upsolve-added {
+  margin-left: auto;
+  color: var(--muted-dim);
+  font-size: 8.5px;
+}
+
+.upsolve-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upsolve-title:hover {
+  color: var(--acid);
+}
+
+.upsolve-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+.upsolve-tag {
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  font-size: 8.5px;
+}
+
+.upsolve-tag:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--acid);
+}
+
+.upsolve-no-tag {
+  color: var(--muted-dim);
+  font-size: 8.5px;
+}
+
+.upsolve-note {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 9.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.upsolve-actions {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 9px;
+}
+
+.upsolve-actions button {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 6px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.upsolve-actions button:hover {
+  color: var(--text);
+}
+
+.upsolve-actions button.is-done {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--acid);
+}
+
+.upsolve-actions button.is-danger {
+  color: var(--red);
+}
+
+.upsolve-actions button:disabled {
+  opacity: 0.5;
+}
+
+.upsolve-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 7px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.upsolve-edit label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.upsolve-edit label > span {
+  color: var(--muted-dim);
+  font-size: 9px;
+}
+
+.upsolve-edit textarea {
+  resize: vertical;
+}
+
+.upsolve-edit-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr 0.7fr;
+  gap: 6px;
+}
+
+.upsolve-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.upsolve-edit-actions button {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.upsolve-edit-actions button.is-primary {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--acid);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.upsolve-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: center;
+  background:
+    radial-gradient(360px 220px at 50% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%),
+    rgba(11, 16, 13, 0.5);
+}
+
+.upsolve-empty svg {
+  margin-bottom: 8px;
+  color: var(--acid);
+  opacity: 0.55;
+}
+
+.upsolve-empty h2 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.upsolve-empty p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10.5px;
+}
+
+.upsolve-empty button {
+  margin-top: 12px;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 4px;
+  color: var(--acid);
+  font-size: 9.5px;
+}
+
+@media (max-width: 1100px) {
+  .upsolve-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .upsolve-stats {
+    width: 100%;
+  }
+
+  .upsolve-contest-import {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .upsolve-contest-record {
+    grid-column: span 2;
+  }
+
+  .upsolve-form {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .upsolve-url-field {
+    grid-column: span 4;
+  }
+
+  .upsolve-form > label:nth-of-type(2) {
+    grid-column: span 2;
+  }
+
+  .upsolve-form > label:nth-of-type(3) {
+    grid-column: span 3;
+  }
+
+  .upsolve-form > label:nth-of-type(4) {
+    grid-column: span 3;
+  }
+
+  .upsolve-form > label:nth-of-type(5) {
+    grid-column: span 2;
+  }
+
+  .upsolve-note-field {
+    grid-column: span 4;
+  }
+
+  .upsolve-add-btn {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .upsolve-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .upsolve-filters {
+    width: 100%;
+  }
+
+  .upsolve-search {
+    flex: 1;
+  }
+
+  .upsolve-search input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .upsolve-page {
+    padding-top: 22px;
+  }
+
+  .upsolve-contest-import {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .upsolve-contest-record {
+    grid-column: span 2;
+  }
+
+  .upsolve-contest-import-btn {
+    grid-column: span 2;
+  }
+
+  .upsolve-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-width: 0;
+  }
+
+  .upsolve-add-panel {
+    padding: 13px;
+  }
+
+  .upsolve-add-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .upsolve-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .upsolve-url-field,
+  .upsolve-form > label:nth-of-type(2),
+  .upsolve-form > label:nth-of-type(3),
+  .upsolve-form > label:nth-of-type(4),
+  .upsolve-form > label:nth-of-type(5),
+  .upsolve-note-field {
+    grid-column: span 2;
+  }
+
+  .upsolve-add-btn {
+    grid-column: span 2;
+  }
+
+  .upsolve-card {
+    grid-template-columns: 3px minmax(0, 1fr);
+  }
+
+  .upsolve-actions {
+    grid-column: 2;
+    border-top: 1px solid var(--line);
+  }
+
+  .upsolve-card-top {
+    flex-wrap: wrap;
+  }
+
+  .upsolve-added {
+    margin-left: 0;
+  }
+
+  .upsolve-filters {
+    flex-wrap: wrap;
+  }
+
+  .upsolve-search {
+    flex-basis: 100%;
+  }
+
+  .upsolve-edit-row {
+    grid-template-columns: 1fr;
+  }
+}

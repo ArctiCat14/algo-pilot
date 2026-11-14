@@ -1,0 +1,17 @@
+node_modules/
+.npm-cache/
+dist/
+*.tsbuildinfo
+data/*.db
+data/*.db-*
+data/*.sqlite
+data/*.sqlite-*
+data/*.png
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.env
+.env.local
+.env.*.local

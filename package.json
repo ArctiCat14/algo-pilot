@@ -1,0 +1,29 @@
+{
+  "name": "algo-training",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AlgoPilot - local-first Codeforces / AtCoder / Luogu training dashboard",
+  "keywords": [
+    "codeforces",
+    "atcoder",
+    "luogu",
+    "competitive-programming",
+    "training"
+  ],
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,green \"npm run dev -w @algo/server\" \"npm run dev -w @algo/web\"",
+    "dev:server": "npm run dev -w @algo/server",
+    "dev:web": "npm run dev -w @algo/web",
+    "build": "npm run build -w @algo/web && npm run build -w @algo/server",
+    "start": "npm run start -w @algo/server",
+    "sync": "npm run sync -w @algo/server --",
+    "typecheck": "npm run typecheck -w @algo/server && npm run typecheck -w @algo/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
